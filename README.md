@@ -109,11 +109,42 @@ erDiagram
     THREAD ||--o{ CHAT : contains
     CHAT ||--o{ FEEDBACK : receives
 
-    USER { uuid id PK; varchar email UK; varchar password; varchar name; varchar role; timestamptz created_at }
-    THREAD { uuid id PK; uuid user_id FK; timestamptz last_chat_at; timestamptz created_at }
-    CHAT { uuid id PK; uuid thread_id FK; text question; text answer; varchar model; timestamptz created_at }
-    FEEDBACK { uuid id PK; uuid user_id FK; uuid chat_id FK; boolean is_positive; varchar status; timestamptz created_at }
-    ACTIVITY_LOG { uuid id PK; uuid user_id FK; varchar type; timestamptz created_at }
+    USER {
+        uuid id PK
+        varchar email UK
+        varchar password
+        varchar name
+        varchar role
+        timestamptz created_at
+    }
+    THREAD {
+        uuid id PK
+        uuid user_id FK
+        timestamptz last_chat_at
+        timestamptz created_at
+    }
+    CHAT {
+        uuid id PK
+        uuid thread_id FK
+        text question
+        text answer
+        varchar model
+        timestamptz created_at
+    }
+    FEEDBACK {
+        uuid id PK
+        uuid user_id FK
+        uuid chat_id FK
+        boolean is_positive
+        varchar status
+        timestamptz created_at
+    }
+    ACTIVITY_LOG {
+        uuid id PK
+        uuid user_id FK
+        varchar type
+        timestamptz created_at
+    }
 ```
 
 ---
